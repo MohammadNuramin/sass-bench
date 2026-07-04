@@ -76,7 +76,7 @@ for i, m in enumerate(rows):
 ax.axvline(0, color=BASE, lw=1.2, ls=(0, (4, 3)), zorder=1)
 ax.set_yticks(range(len(rows))); ax.set_yticklabels([SHORT[m] for m in rows], fontsize=10)
 ax.set_xlabel("Schema Pressure Index   (SPI-C2 = FalseFill$_{strict\\,JSON}$ − FalseFill$_{free\\,text}$)")
-ax.set_title("Strict-JSON prompting raises fabrication in capable sub-1B SLMs", pad=10)
+ax.set_title("Strict JSON prompting raises fabrication in capable sub-1B SLMs", pad=10)
 ax.margins(x=0.14); despine(ax)
 ax.set_axisbelow(True); ax.grid(axis="x", color=GRID, lw=0.7)
 ax.legend(handles=[Line2D([0],[0],marker="o",color=RED,lw=2.4,ms=7,label="schema pressure (95% CI excludes 0)"),
@@ -88,7 +88,7 @@ save(fig, "fig1_schema_pressure_index")
 # ======================================================================= FIG 2
 # Job: magnitude across an ordered grid (model x condition) -> sequential heatmap.
 conds = ["C0", "C2", "C3", "C4", "C5"]
-clabel = ["C0\nfree-text", "C2\nstrict", "C3\n+null", "C4\nfew-shot", "C5\nconstrained"]
+clabel = ["C0\nfree text", "C2\nstrict", "C3\n+null", "C4\nfew-shot", "C5\nconstrained"]
 order = sorted(base, key=lambda m: -num(SUM.get((m, "C2"), {}).get("false_fill_rate", "nan")))
 M = np.array([[num(SUM.get((m, c), {}).get("false_fill_rate", "nan")) for c in conds] for m in order])
 fig, ax = plt.subplots(figsize=(6.6, 5.0))
@@ -108,7 +108,7 @@ ax.grid(which="minor", color=SURF, lw=2.2); ax.tick_params(which="minor", length
 for s in ax.spines.values(): s.set_visible(False)
 cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.03); cb.set_label("False Fill Rate", fontsize=9.5)
 cb.outline.set_visible(False); cb.ax.tick_params(color=MUTED, labelsize=8.5)
-ax.set_title("False-fill rate across prompting conditions", pad=10)
+ax.set_title("False fill rate across prompting conditions", pad=10)
 save(fig, "fig2_ffr_by_condition_heatmap")
 
 # ======================================================================= FIG 3
@@ -120,7 +120,7 @@ ff = [num(SUM[(m, "C5")]["false_fill_rate"]) for m in c5m]
 y = np.arange(len(c5m)); h = 0.38
 fig, ax = plt.subplots(figsize=(7.0, 4.4))
 ax.barh(y+h/2, sv, height=h, color=BLUE, label="schema validity (structure)", zorder=3)
-ax.barh(y-h/2, ff, height=h, color=RED, label="false-fill rate (fabrication)", zorder=3)
+ax.barh(y-h/2, ff, height=h, color=RED, label="false fill rate (fabrication)", zorder=3)
 for i, (a, b) in enumerate(zip(sv, ff)):
     ax.text(a+0.012, i+h/2, f"{a:.2f}", va="center", fontsize=8.3, color=INK2)
     ax.text(b+0.012, i-h/2, f"{b:.2f}", va="center", fontsize=8.3, color=INK2)
