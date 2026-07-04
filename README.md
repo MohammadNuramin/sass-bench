@@ -62,6 +62,7 @@ results/       scored summary CSVs, per-condition/per-challenge breakdowns,
                ├── robustness_c0c3/         temp-0.2 ×3 replication (C0/C3)
                └── robustness_c2/           temp-0.2 ×3 replication (C2)
 docs/          benchmark protocol, model-selection rationale, references
+paper/         the paper: compiled PDF + LaTeX source (Springer svproc format)
 ```
 
 ## Conditions
@@ -107,5 +108,11 @@ Format–Truth Gap · Schema Pressure Index (see `docs/EXPERIMENT_PROTOCOL.md`).
 deliberately conservative: a plausible guess is counted wrong unless directly supported by
 the context.
 
+## Paper
+The paper is in [`paper/`](paper/): [`paper/main.pdf`](paper/main.pdf) (13 pp., Springer
+`svproc` proceedings format) with full LaTeX source and figures. Author and affiliation are
+anonymized in this version pending review.
+
 ## Citation
-Paper forthcoming — citation will be added here on publication.
+A full citation will be added on publication. Until then, please cite this repository and the
+included preprint (`paper/main.pdf`).
