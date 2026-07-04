@@ -8,7 +8,7 @@ The experiment asks whether a model fills unsupported JSON fields when the corre
 
 ## Benchmark
 
-Use SASS-Bench: Schema-Abstention Stress Benchmark.
+Use SASS-Bench: Schema-Abstention Stress Suite.
 
 Each item contains:
 

@@ -1,6 +1,6 @@
-# SASS-Bench — Valid JSON, False Facts
+# SASS-Bench — Valid JSON and False Facts under Schema Pressure in Tiny Language Models
 
-**Schema-Abstention Stress Benchmark: does strict-JSON prompting make sub-1B language
+**Schema-Abstention Stress Suite: does strict-JSON prompting make sub-1B language
 models fabricate unsupported fields instead of returning `null`?**
 
 Small (<1B-parameter) language models are increasingly used for on-device structured
@@ -109,7 +109,7 @@ deliberately conservative: a plausible guess is counted wrong unless directly su
 the context.
 
 ## Paper
-The paper is in [`paper/`](paper/): [`paper/main.pdf`](paper/main.pdf) (13 pp., Springer
+The paper — *Valid JSON and False Facts under Schema Pressure in Tiny Language Models* — is in [`paper/`](paper/): [`paper/main.pdf`](paper/main.pdf) (14 pp., Springer
 `svproc` proceedings format) with full LaTeX source and figures. Author and affiliation are
 anonymized in this version pending review.
 

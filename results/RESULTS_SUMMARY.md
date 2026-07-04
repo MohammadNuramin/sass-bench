@@ -1,4 +1,4 @@
-# SASS-Bench Results — "Valid JSON, False Facts" (run 2026-07-04)
+# SASS-Bench Results — "Valid JSON and False Facts under Schema Pressure in Tiny Language Models" (run 2026-07-04)
 
 Experiment executed end-to-end by an experiment-running agent. This document is the
 analysis hand-off for the paper author. **Read the "What you can / cannot claim" section
