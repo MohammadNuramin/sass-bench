@@ -14,7 +14,8 @@ from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.lines import Line2D
 
 # ---- validated palette (dataviz skill reference instance) ----
-INK, INK2, MUTED, GRID, BASE, SURF = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7", "#fcfcfb"
+INK, INK2, MUTED, GRID, BASE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7"
+SURF = "#ffffff"  # pure white so the figure blends into the (white) paper page, not a cream/brown box
 BLUE, RED, AQUA = "#2a78d6", "#d03b3b", "#1baf7a"
 SEQ = ["#eef5fe", "#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
 CMAP = LinearSegmentedColormap.from_list("seqblue", SEQ)
