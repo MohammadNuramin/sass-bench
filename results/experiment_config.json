@@ -1,0 +1,81 @@
+{
+  "run_id": "2026-07-04-robustness",
+  "created_by": "agent_name_here",
+  "date": "2026-07-03",
+  "dataset": {
+    "file": "data/sass_bench.jsonl",
+    "n_examples": 334,
+    "seed": 42,
+    "generator_script": "scripts/generate_sass_bench.py"
+  },
+  "conditions": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "optional_conditions": [
+    "C5"
+  ],
+  "decoding": {
+    "temperature": 0,
+    "top_p": 1,
+    "max_new_tokens": 256,
+    "seed": 42
+  },
+  "models_attempted": [
+    "LiquidAI/LFM2.5-230M",
+    "LiquidAI/LFM2.5-350M",
+    "Qwen/Qwen3.5-0.8B",
+    "tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct",
+    "tiiuae/Falcon-H1-Tiny-R-0.6B",
+    "ibm-granite/granite-4.0-350m",
+    "ibm-granite/granite-4.0-h-350m",
+    "google/functiongemma-270m-it",
+    "LiquidAI/LFM2-350M-Extract",
+    "Qwen/Qwen3-0.6B",
+    "LiquidAI/LFM2.5-230M@int8",
+    "LiquidAI/LFM2.5-230M@int4",
+    "LiquidAI/LFM2.5-350M@int8",
+    "LiquidAI/LFM2.5-350M@int4",
+    "google/functiongemma-270m-it@int8",
+    "google/functiongemma-270m-it@int4",
+    "LiquidAI/LFM2-350M-Extract@int8",
+    "LiquidAI/LFM2-350M-Extract@int4",
+    "Qwen/Qwen3-0.6B@int8",
+    "Qwen/Qwen3-0.6B@int4",
+    "LiquidAI/LFM2.5-230M@robust-r1",
+    "LiquidAI/LFM2.5-230M@robust-r2",
+    "LiquidAI/LFM2.5-230M@robust-r3",
+    "LiquidAI/LFM2.5-350M@robust-r1",
+    "LiquidAI/LFM2.5-350M@robust-r2",
+    "LiquidAI/LFM2.5-350M@robust-r3",
+    "Qwen/Qwen3.5-0.8B@robust-r1",
+    "Qwen/Qwen3.5-0.8B@robust-r2",
+    "Qwen/Qwen3.5-0.8B@robust-r3",
+    "tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct@robust-r1",
+    "tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct@robust-r2",
+    "tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct@robust-r3",
+    "tiiuae/Falcon-H1-Tiny-R-0.6B@robust-r1",
+    "tiiuae/Falcon-H1-Tiny-R-0.6B@robust-r2",
+    "tiiuae/Falcon-H1-Tiny-R-0.6B@robust-r3"
+  ],
+  "models_failed": [],
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cpu": "x86_64",
+    "ram_gb": 25.3,
+    "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35"
+  },
+  "software_versions": {
+    "python": "3.11.0rc1",
+    "transformers": "5.13.0",
+    "torch": "2.6.0+cu124",
+    "jsonschema": "4.26.0",
+    "vllm": null,
+    "llama_cpp": null
+  },
+  "notes": "",
+  "c5_framework": "lm-format-enforcer-?"
+}

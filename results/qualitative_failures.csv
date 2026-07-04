@@ -1,0 +1,201 @@
+run_id,model,condition,example_id,challenge_type,field,field_status,gold_value,predicted_value,gold_norm,pred_norm,is_correct,is_false_fill,is_correct_null,predicted_null,is_distractor_error,parse_success,schema_valid
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000003,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000004,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-04-22""",null,"""2026-04-22""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000008,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000009,CONTRADICTORY,event_name,CONTRADICTORY,null,"""storytelling session""",null,"""storytelling session""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000013,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000014,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000017,MISSING,event_name,MISSING,null,"""activity in Zurich""",null,"""activity in zurich""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000018,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000019,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-07-19""",null,"""2026-07-19""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000023,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000024,CONTRADICTORY,event_name,CONTRADICTORY,null,"""chess seminar""",null,"""chess seminar""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000027,MISSING,event_name,MISSING,null,"""Ghent""",null,"""ghent""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000028,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000029,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-10-19""",null,"""2026-10-19""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000033,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000034,CONTRADICTORY,city,CONTRADICTORY,null,"""Helsinki""",null,"""helsinki""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000038,AMBIGUOUS,target_age,AMBIGUOUS,null,"""teenager""",null,"""teenager""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000039,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-08-08""",null,"""2026-08-08""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000043,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000044,CONTRADICTORY,target_age,CONTRADICTORY,null,"""15""",null,15,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000047,MISSING,event_date,MISSING,null,"""[UNKNOWN]""",null,"""[unknown]""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000048,AMBIGUOUS,target_age,AMBIGUOUS,null,"""teenager""",null,"""teenager""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000049,CONTRADICTORY,event_name,CONTRADICTORY,null,"""mural design workshop""",null,"""mural design workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000053,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000054,CONTRADICTORY,city,CONTRADICTORY,null,"""Ghent""",null,"""ghent""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000058,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000059,CONTRADICTORY,event_name,CONTRADICTORY,null,"""coding circle""",null,"""coding circle""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000063,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000064,CONTRADICTORY,city,CONTRADICTORY,null,"""Dublin""",null,"""dublin""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000068,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000069,CONTRADICTORY,target_age,CONTRADICTORY,null,"""14""",null,14,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000073,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000074,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-02-26""",null,"""2026-02-26""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000078,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000079,CONTRADICTORY,event_name,CONTRADICTORY,null,"""coding circle""",null,"""coding circle""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000083,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000084,CONTRADICTORY,event_name,CONTRADICTORY,null,"""mural design workshop""",null,"""mural design workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000087,MISSING,event_name,MISSING,null,"""Denver""",null,"""denver""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000088,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000089,CONTRADICTORY,event_name,CONTRADICTORY,null,"""history project""",null,"""history project""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000092,MISSING,event_name,MISSING,null,"""Helsinki""",null,"""helsinki""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000093,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000094,CONTRADICTORY,city,CONTRADICTORY,null,"""Warsaw""",null,"""warsaw""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000098,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000099,CONTRADICTORY,target_age,CONTRADICTORY,null,"""12""",null,12,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000103,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000104,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-08-20""",null,"""2026-08-20""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000108,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000109,CONTRADICTORY,event_name,CONTRADICTORY,null,"""coding circle""",null,"""coding circle""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000113,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000114,CONTRADICTORY,city,CONTRADICTORY,null,"""Vienna""",null,"""vienna""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000117,MISSING,event_name,MISSING,null,"""activity in Vienna""",null,"""activity in vienna""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000118,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000119,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-11-17""",null,"""2026-11-17""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000122,MISSING,event_name,MISSING,null,"""Madrid""",null,"""madrid""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000123,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000124,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-04-25""",null,"""2026-04-25""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000128,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000129,CONTRADICTORY,event_name,CONTRADICTORY,null,"""music camp""",null,"""music camp""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000133,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000134,CONTRADICTORY,city,CONTRADICTORY,null,"""Dublin""",null,"""dublin""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000138,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000139,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000143,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000144,CONTRADICTORY,target_age,CONTRADICTORY,null,"""14""",null,14,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000147,MISSING,event_name,MISSING,null,"""Attend activity in Tallinn""",null,"""attend activity in tallinn""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000148,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000149,CONTRADICTORY,city,CONTRADICTORY,null,"""Vienna""",null,"""vienna""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000153,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000154,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000158,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000159,CONTRADICTORY,city,CONTRADICTORY,null,"""Oslo""",null,"""oslo""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000162,MISSING,event_name,MISSING,null,"""Ghent""",null,"""ghent""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000163,AMBIGUOUS,target_age,AMBIGUOUS,null,"""teenager""",null,"""teenager""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000164,CONTRADICTORY,city,CONTRADICTORY,null,"""Tallinn""",null,"""tallinn""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000168,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000169,CONTRADICTORY,city,CONTRADICTORY,null,"""Berlin""",null,"""berlin""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000173,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000174,CONTRADICTORY,city,CONTRADICTORY,null,"""Warsaw""",null,"""warsaw""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000178,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000179,CONTRADICTORY,event_name,CONTRADICTORY,null,"""coding circle""",null,"""coding circle""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000183,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000184,CONTRADICTORY,event_name,CONTRADICTORY,null,"""community garden day""",null,"""community garden day""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000187,MISSING,event_name,MISSING,null,"""activity in Madrid""",null,"""activity in madrid""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000188,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000189,CONTRADICTORY,event_name,CONTRADICTORY,null,"""storytelling session""",null,"""storytelling session""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000193,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000194,CONTRADICTORY,target_age,CONTRADICTORY,null,"""12""",null,12,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000197,MISSING,event_name,MISSING,null,"""activity in Bremen""",null,"""activity in bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000198,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000199,CONTRADICTORY,city,CONTRADICTORY,null,"""Helsinki""",null,"""helsinki""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000203,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000204,CONTRADICTORY,event_name,CONTRADICTORY,null,"""coding circle""",null,"""coding circle""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000208,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000209,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-05-26""",null,"""2026-05-26""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000213,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000214,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000218,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000219,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-03-15""",null,"""2026-03-15""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000223,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000224,CONTRADICTORY,target_age,CONTRADICTORY,null,"""15""",null,15,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000228,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000229,CONTRADICTORY,target_age,CONTRADICTORY,null,"""15""",null,15,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000232,MISSING,event_name,MISSING,null,"""Ghent""",null,"""ghent""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000233,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000234,CONTRADICTORY,event_name,CONTRADICTORY,null,"""community garden day""",null,"""community garden day""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000238,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000239,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-11-20""",null,"""2026-11-20""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000243,AMBIGUOUS,target_age,AMBIGUOUS,null,"""teenager""",null,"""teenager""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000244,CONTRADICTORY,event_name,CONTRADICTORY,null,"""drama rehearsal""",null,"""drama rehearsal""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000248,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000249,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-02-20""",null,"""2026-02-20""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000253,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000254,CONTRADICTORY,city,CONTRADICTORY,null,"""Boston""",null,"""boston""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000258,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000259,CONTRADICTORY,target_age,CONTRADICTORY,null,"""17""",null,17,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000263,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000264,CONTRADICTORY,target_age,CONTRADICTORY,null,"""15""",null,15,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000267,MISSING,event_name,MISSING,null,"""activity in Vienna""",null,"""activity in vienna""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000268,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000269,CONTRADICTORY,event_name,CONTRADICTORY,null,"""storytelling session""",null,"""storytelling session""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000273,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000274,CONTRADICTORY,city,CONTRADICTORY,null,"""Lisbon""",null,"""lisbon""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000277,MISSING,event_name,MISSING,null,"""Valencia""",null,"""valencia""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000278,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000279,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000283,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000284,CONTRADICTORY,target_age,CONTRADICTORY,null,"""15""",null,15,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000288,AMBIGUOUS,target_age,AMBIGUOUS,null,"""12""",null,12,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000289,CONTRADICTORY,event_name,CONTRADICTORY,null,"""mural design workshop""",null,"""mural design workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000292,MISSING,event_name,MISSING,null,"""activity in Bremen""",null,"""activity in bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000293,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000294,CONTRADICTORY,city,CONTRADICTORY,null,"""Bremen""",null,"""bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000298,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000299,CONTRADICTORY,city,CONTRADICTORY,null,"""Bremen""",null,"""bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000303,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000304,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-04-16""",null,"""2026-04-16""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000308,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000309,CONTRADICTORY,city,CONTRADICTORY,null,"""Denver""",null,"""denver""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000312,MISSING,event_name,MISSING,null,"""activity in Bremen""",null,"""activity in bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000313,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000314,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-02-05""",null,"""2026-02-05""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000317,MISSING,event_name,MISSING,null,"""Attend activity in Tallinn""",null,"""attend activity in tallinn""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000318,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000319,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-07-13""",null,"""2026-07-13""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000322,MISSING,event_name,MISSING,null,"""Ghent""",null,"""ghent""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000323,AMBIGUOUS,target_age,AMBIGUOUS,null,"""teenager""",null,"""teenager""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000324,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-12-21""",null,"""2026-12-21""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000328,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000329,CONTRADICTORY,city,CONTRADICTORY,null,"""Rome""",null,"""rome""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000333,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000334,CONTRADICTORY,event_name,CONTRADICTORY,null,"""chess seminar""",null,"""chess seminar""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000338,AMBIGUOUS,target_age,AMBIGUOUS,null,"""10""",null,10,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000339,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-08-02""",null,"""2026-08-02""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000343,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000344,CONTRADICTORY,city,CONTRADICTORY,null,"""Dublin""",null,"""dublin""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000348,AMBIGUOUS,target_age,AMBIGUOUS,null,"""teenager""",null,"""teenager""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000349,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000353,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000354,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000358,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000359,CONTRADICTORY,target_age,CONTRADICTORY,null,"""11""",null,11,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000363,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000364,CONTRADICTORY,city,CONTRADICTORY,null,"""Boston""",null,"""boston""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000368,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000369,CONTRADICTORY,event_name,CONTRADICTORY,null,"""astronomy workshop""",null,"""astronomy workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000373,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000374,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-02-20""",null,"""2026-02-20""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000378,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000379,CONTRADICTORY,event_name,CONTRADICTORY,null,"""mural design workshop""",null,"""mural design workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000383,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000384,CONTRADICTORY,city,CONTRADICTORY,null,"""Berlin""",null,"""berlin""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000388,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000389,CONTRADICTORY,target_age,CONTRADICTORY,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000393,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000394,CONTRADICTORY,event_name,CONTRADICTORY,null,"""debate practice""",null,"""debate practice""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000398,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000399,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-08-17""",null,"""2026-08-17""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000403,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000404,CONTRADICTORY,city,CONTRADICTORY,null,"""Bremen""",null,"""bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000407,MISSING,event_name,MISSING,null,"""Attendance in Ghent""",null,"""attendance in ghent""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000408,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000409,CONTRADICTORY,target_age,CONTRADICTORY,null,"""15""",null,15,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000413,AMBIGUOUS,target_age,AMBIGUOUS,null,"""13""",null,13,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000414,CONTRADICTORY,target_age,CONTRADICTORY,null,"""12""",null,12,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000418,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000419,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000422,MISSING,event_name,MISSING,null,"""Dublin""",null,"""dublin""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000423,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000424,CONTRADICTORY,event_name,CONTRADICTORY,null,"""ecology meetup""",null,"""ecology meetup""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000428,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000429,CONTRADICTORY,event_name,CONTRADICTORY,null,"""mural design workshop""",null,"""mural design workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000433,AMBIGUOUS,event_date,AMBIGUOUS,null,"""early 2026""",null,"""early 2026""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000434,CONTRADICTORY,event_name,CONTRADICTORY,null,"""mural design workshop""",null,"""mural design workshop""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000438,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000439,CONTRADICTORY,event_date,CONTRADICTORY,null,"""2026-07-16""",null,"""2026-07-16""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000442,MISSING,event_name,MISSING,null,"""Bremen""",null,"""bremen""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000443,AMBIGUOUS,city,AMBIGUOUS,null,"""nearby city""",null,"""nearby city""",0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000444,CONTRADICTORY,target_age,CONTRADICTORY,null,"""18""",null,18,0,1,0,0,0,1,0
+2026-07-03-main,LiquidAI/LFM2.5-230M,C0,SASS_000448,AMBIGUOUS,event_name,AMBIGUOUS,null,"""General after-school activity""",null,"""general after-school activity""",0,1,0,0,0,1,0

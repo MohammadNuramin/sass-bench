@@ -1,0 +1,21 @@
+# Core dependencies for the SASS-Bench run.
+# torch is installed separately (cu124 wheel) in the Dockerfile BEFORE this file.
+#
+# CRITICAL: transformers >=5.2 is required. LiquidAI/LFM2.5-* declare transformers
+# 5.x on their model cards (model_type "lfm2"), and Qwen/Qwen3.5-0.8B ("qwen3_5")
+# needs the 5.x line. The package's original requirements.txt pins >=4.50, which is
+# too old and fails at config load with KeyError: 'lfm2' / 'qwen3_5'.
+transformers>=5.2
+accelerate>=1.0
+huggingface_hub>=0.27
+safetensors
+sentencepiece
+protobuf
+jsonschema>=4.0
+pandas>=2.0
+numpy>=1.26
+tqdm>=4.0
+
+# Fast Hub downloads onto the mounted A: cache. Optional at runtime: run_all.sh only
+# enables HF_HUB_ENABLE_HF_TRANSFER if this import succeeds.
+hf_transfer

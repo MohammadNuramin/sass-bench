@@ -1,0 +1,23 @@
+# Minimal scoring/generation
+pandas>=2.0
+jsonschema>=4.0
+tqdm>=4.0
+numpy>=1.26
+
+# Optional local model running
+torch
+# NOTE: transformers >=5.2 is REQUIRED to load the newer primary models. LiquidAI/LFM2.5-*
+# (model_type "lfm2") declare transformers 5.x, and Qwen/Qwen3.5-0.8B ("qwen3_5") needs the
+# 5.x line. The old >=4.50 pin fails at config load with KeyError: 'lfm2' / 'qwen3_5'.
+transformers>=5.2
+accelerate>=1.0
+huggingface_hub>=0.27
+sentencepiece
+protobuf
+
+# Optional structured/constrained decoding; install only if needed
+# vllm
+# outlines
+# guidance
+# sglang
+# llama-cpp-python

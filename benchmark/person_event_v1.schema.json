@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SASS-Bench Person Event Extraction Schema v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "target_name",
+    "target_age",
+    "event_name",
+    "city",
+    "event_date"
+  ],
+  "properties": {
+    "target_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_age": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "event_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "city": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Use YYYY-MM-DD if directly stated; otherwise null."
+    }
+  }
+}

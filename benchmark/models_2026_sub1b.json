@@ -1,0 +1,175 @@
+{
+  "created_date": "2026-07-03",
+  "scope": "Primary focus is newer sub-1B SLMs, especially 2025-2026 releases. Older models are only optional baselines.",
+  "selection_rule": "Include only text-generative models with parameter_count_b < 1.0 as primary models. Models at exactly 1B or above are excluded from the main analysis.",
+  "primary_models": [
+    {
+      "model_id": "LiquidAI/LFM2.5-230M",
+      "short_name": "LFM2.5-230M",
+      "parameter_count_b": 0.23,
+      "release_date_or_card_date": "2026-06-25",
+      "priority": "primary-new",
+      "why_include": "Very recent 230M edge model designed for agentic tasks, tool use, and data extraction; directly aligned with schema-abstention extraction tests.",
+      "expected_engine": "transformers, vLLM, llama.cpp via GGUF variant",
+      "gguf_or_quantized_variant": "LiquidAI/LFM2.5-230M-GGUF",
+      "source_urls": [
+        "https://huggingface.co/LiquidAI/LFM2.5-230M",
+        "https://www.liquid.ai/blog/lfm2-5-230m"
+      ]
+    },
+    {
+      "model_id": "LiquidAI/LFM2.5-350M",
+      "short_name": "LFM2.5-350M",
+      "parameter_count_b": 0.35,
+      "release_date_or_card_date": "2026-03-31 / HF updated 2026",
+      "priority": "primary-new",
+      "why_include": "Recent 350M on-device model with strong edge inference claims; useful for comparing 230M vs 350M behavior.",
+      "expected_engine": "transformers, vLLM, llama.cpp via GGUF variant",
+      "gguf_or_quantized_variant": "LiquidAI/LFM2.5-350M-GGUF",
+      "source_urls": [
+        "https://huggingface.co/LiquidAI/LFM2.5-350M",
+        "https://www.liquid.ai/blog/lfm2-5-350m-no-size-left-behind"
+      ]
+    },
+    {
+      "model_id": "Qwen/Qwen3.5-0.8B",
+      "short_name": "Qwen3.5-0.8B",
+      "parameter_count_b": 0.8,
+      "release_date_or_card_date": "2026-03-09",
+      "priority": "primary-new",
+      "why_include": "Newer Qwen sub-1B model; useful strong upper-end sub-1B comparison with long-context and instruction-following behavior.",
+      "expected_engine": "transformers, vLLM, llama.cpp via third-party GGUF if available",
+      "gguf_or_quantized_variant": "Use a pinned Qwen3.5-0.8B GGUF/MLX conversion if raw HF model is too heavy for local hardware.",
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-0.8B",
+        "https://huggingface.co/Qwen/Qwen3.5-0.8B-Base"
+      ]
+    },
+    {
+      "model_id": "tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct",
+      "short_name": "Falcon-H1-Tiny-100M-Instruct",
+      "parameter_count_b": 0.1,
+      "release_date_or_card_date": "2026-03-02 / collection 2026-01",
+      "priority": "primary-new",
+      "why_include": "Very small 100M instruction-tuned model from the Falcon-H1-Tiny series; tests whether schema pressure appears at extremely tiny scale.",
+      "expected_engine": "transformers, vLLM, SGLang, Docker model runner, GGUF conversion if available",
+      "gguf_or_quantized_variant": "Community GGUF variants may exist; pin exact source if used.",
+      "source_urls": [
+        "https://huggingface.co/tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct",
+        "https://huggingface.co/collections/tiiuae/falcon-h1-tiny"
+      ]
+    },
+    {
+      "model_id": "tiiuae/Falcon-H1-Tiny-R-0.6B",
+      "short_name": "Falcon-H1-Tiny-R-0.6B",
+      "parameter_count_b": 0.6,
+      "release_date_or_card_date": "2026-03-02 / tiny R release 2026-01",
+      "priority": "primary-new",
+      "why_include": "Recent 600M tiny reasoning model; tests whether reasoning-oriented training improves or worsens abstention under schemas.",
+      "expected_engine": "transformers, vLLM, SGLang, llama.cpp via GGUF variant",
+      "gguf_or_quantized_variant": "tiiuae/Falcon-H1-Tiny-R-0.6B-GGUF",
+      "source_urls": [
+        "https://huggingface.co/tiiuae/Falcon-H1-Tiny-R-0.6B",
+        "https://huggingface.co/tiiuae/Falcon-H1-Tiny-R-0.6B-GGUF"
+      ]
+    },
+    {
+      "model_id": "ibm-granite/granite-4.0-350m",
+      "short_name": "Granite-4.0-350M",
+      "parameter_count_b": 0.35,
+      "release_date_or_card_date": "2025-10-28",
+      "priority": "primary-recent",
+      "why_include": "Recent IBM Granite Nano instruct model for on-device and research use; useful enterprise/open baseline.",
+      "expected_engine": "transformers, vLLM, llama.cpp via GGUF variant",
+      "gguf_or_quantized_variant": "ibm-granite/granite-4.0-350m-GGUF",
+      "source_urls": [
+        "https://huggingface.co/ibm-granite/granite-4.0-350m",
+        "https://huggingface.co/blog/ibm-granite/granite-4-nano"
+      ]
+    },
+    {
+      "model_id": "ibm-granite/granite-4.0-h-350m",
+      "short_name": "Granite-4.0-H-350M",
+      "parameter_count_b": 0.35,
+      "release_date_or_card_date": "2025-10-28",
+      "priority": "primary-recent",
+      "why_include": "Hybrid Mamba/Transformer-style Granite Nano model; tests whether hybrid architecture changes schema-abstention behavior.",
+      "expected_engine": "transformers, vLLM, llama.cpp via GGUF variant",
+      "gguf_or_quantized_variant": "ibm-granite/granite-4.0-h-350m-GGUF",
+      "source_urls": [
+        "https://huggingface.co/ibm-granite/granite-4.0-h-350m",
+        "https://www.ibm.com/granite/docs/models/granite"
+      ]
+    },
+    {
+      "model_id": "google/functiongemma-270m-it",
+      "short_name": "FunctionGemma-270M-IT",
+      "parameter_count_b": 0.27,
+      "release_date_or_card_date": "2025-12-18 / HF 2026-03-12",
+      "priority": "primary-recent-task-specific",
+      "why_include": "Function-calling model based on Gemma 3 270M; directly relevant to JSON/tool-call style structured output.",
+      "expected_engine": "transformers or Gemma-compatible local runtime; license/access may require authentication.",
+      "gguf_or_quantized_variant": "Check official or community quantized variants; pin exact revision.",
+      "source_urls": [
+        "https://ai.google.dev/gemma/docs/functiongemma",
+        "https://huggingface.co/google/functiongemma-270m-it"
+      ]
+    },
+    {
+      "model_id": "LiquidAI/LFM2-350M-Extract",
+      "short_name": "LFM2-350M-Extract",
+      "parameter_count_b": 0.35,
+      "release_date_or_card_date": "2025-11-28",
+      "priority": "primary-recent-task-specific",
+      "why_include": "Recent extraction-tuned 350M model designed to output structured formats including JSON, XML, and YAML; ideal stress test for schema-induced hallucination.",
+      "expected_engine": "transformers, vLLM, llama.cpp via GGUF variant",
+      "gguf_or_quantized_variant": "LiquidAI/LFM2-350M-Extract-GGUF",
+      "source_urls": [
+        "https://huggingface.co/LiquidAI/LFM2-350M-Extract",
+        "https://huggingface.co/LiquidAI/LFM2-350M-Extract-GGUF"
+      ]
+    }
+  ],
+  "optional_recent_backup_models": [
+    {
+      "model_id": "google/gemma-3-270m-it",
+      "short_name": "Gemma-3-270M-IT",
+      "parameter_count_b": 0.27,
+      "release_date_or_card_date": "2025-08-14",
+      "priority": "backup-recent",
+      "why_include": "Compact 270M model for task-specific fine-tuning and text structuring; useful fallback if FunctionGemma access fails.",
+      "source_urls": [
+        "https://developers.googleblog.com/en/introducing-gemma-3-270m/"
+      ]
+    },
+    {
+      "model_id": "Qwen/Qwen3-0.6B",
+      "short_name": "Qwen3-0.6B",
+      "parameter_count_b": 0.6,
+      "release_date_or_card_date": "2025-05-14",
+      "priority": "backup-recent-not-newest",
+      "why_include": "Older than Qwen3.5 but still a useful continuity baseline under 1B.",
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3-0.6B"
+      ]
+    }
+  ],
+  "excluded_from_primary": [
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "reason": "Older baseline; only use if the paper needs a historical comparison."
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "reason": "Older baseline; not part of new-primary model list."
+    },
+    {
+      "model_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "reason": "Above the sub-1B threshold and older."
+    },
+    {
+      "model_id": "meta-llama/Llama-3.2-1B-Instruct",
+      "reason": "At/above 1B, outside the strict sub-1B scope."
+    }
+  ]
+}

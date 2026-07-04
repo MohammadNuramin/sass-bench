@@ -1,0 +1,173 @@
+{
+  "_comment": "Single source of dispatch truth for run_experiment.py. loader routes to AutoModelForCausalLM vs AutoModelForImageTextToText (Qwen3.5 is multimodal). c5_supported / quant_supported gate the add-on passes per architecture; unsupported combos are recorded in experiment_config.json as skipped-with-reason, not attempted 1000x. Hybrid Mamba models (falcon_h1, granitemoehybrid) get pure-PyTorch fallback if the optional kernels did not compile.",
+  "defaults": {
+    "dtype": "auto",
+    "trust_remote_code": true,
+    "batch_size": 32,
+    "max_new_tokens": 256
+  },
+  "conditions": {
+    "base": ["C0", "C1", "C2", "C3", "C4"],
+    "robustness": {
+      "conditions": ["C0", "C3"],
+      "temperature": 0.2,
+      "top_p": 0.95,
+      "repetitions": 3
+    },
+    "quant": {
+      "variants": ["int8", "int4"],
+      "conditions": ["C0", "C1", "C2", "C3", "C4"]
+    },
+    "c5": {
+      "condition": "C5",
+      "base_prompt": "C3_strict_json_explicit_null_rule",
+      "frameworks_priority": ["xgrammar", "outlines"]
+    }
+  },
+  "models": [
+    {
+      "model_id": "LiquidAI/LFM2.5-230M",
+      "short_name": "LFM2.5-230M",
+      "param_b": 0.23,
+      "loader": "causal_lm",
+      "dtype": "auto",
+      "batch_size": 48,
+      "chat_kwargs": {},
+      "is_hybrid": false,
+      "reasoning": false,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": true
+    },
+    {
+      "model_id": "LiquidAI/LFM2.5-350M",
+      "short_name": "LFM2.5-350M",
+      "param_b": 0.35,
+      "loader": "causal_lm",
+      "dtype": "auto",
+      "batch_size": 48,
+      "chat_kwargs": {},
+      "is_hybrid": false,
+      "reasoning": false,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": true
+    },
+    {
+      "model_id": "Qwen/Qwen3.5-0.8B",
+      "short_name": "Qwen3.5-0.8B",
+      "param_b": 0.8,
+      "loader": "image_text_to_text",
+      "dtype": "auto",
+      "batch_size": 16,
+      "chat_kwargs": { "enable_thinking": false },
+      "is_hybrid": false,
+      "reasoning": true,
+      "role": "primary",
+      "note": "Multimodal (qwen3_5, Qwen3_5ForConditionalGeneration). Load via AutoModelForImageTextToText + AutoProcessor, text-only chat, no pixel_values. Log language_model-only param count for the sub-1B claim.",
+      "c5_supported": false,
+      "quant_supported": false
+    },
+    {
+      "model_id": "tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct",
+      "short_name": "Falcon-H1-Tiny-100M-Instruct",
+      "param_b": 0.1,
+      "loader": "causal_lm",
+      "dtype": "auto",
+      "batch_size": 32,
+      "chat_kwargs": {},
+      "is_hybrid": true,
+      "reasoning": false,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": false
+    },
+    {
+      "model_id": "tiiuae/Falcon-H1-Tiny-R-0.6B",
+      "short_name": "Falcon-H1-Tiny-R-0.6B",
+      "param_b": 0.6,
+      "loader": "causal_lm",
+      "dtype": "auto",
+      "batch_size": 24,
+      "chat_kwargs": { "enable_thinking": false },
+      "is_hybrid": true,
+      "reasoning": true,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": false
+    },
+    {
+      "model_id": "ibm-granite/granite-4.0-350m",
+      "short_name": "Granite-4.0-350M",
+      "param_b": 0.35,
+      "loader": "causal_lm",
+      "dtype": "bfloat16",
+      "batch_size": 32,
+      "chat_kwargs": {},
+      "is_hybrid": true,
+      "reasoning": false,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": false
+    },
+    {
+      "model_id": "ibm-granite/granite-4.0-h-350m",
+      "short_name": "Granite-4.0-H-350M",
+      "param_b": 0.35,
+      "loader": "causal_lm",
+      "dtype": "bfloat16",
+      "batch_size": 8,
+      "chat_kwargs": {},
+      "is_hybrid": true,
+      "reasoning": false,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": false
+    },
+    {
+      "model_id": "google/functiongemma-270m-it",
+      "short_name": "FunctionGemma-270M-IT",
+      "param_b": 0.27,
+      "loader": "causal_lm",
+      "dtype": "bfloat16",
+      "batch_size": 48,
+      "chat_kwargs": {},
+      "is_hybrid": false,
+      "reasoning": false,
+      "role": "primary",
+      "gated": true,
+      "fallback_model_id": "google/gemma-3-270m-it",
+      "c5_supported": true,
+      "quant_supported": true
+    },
+    {
+      "model_id": "LiquidAI/LFM2-350M-Extract",
+      "short_name": "LFM2-350M-Extract",
+      "param_b": 0.35,
+      "loader": "causal_lm",
+      "dtype": "auto",
+      "batch_size": 48,
+      "chat_kwargs": {},
+      "is_hybrid": false,
+      "reasoning": false,
+      "role": "primary",
+      "c5_supported": true,
+      "quant_supported": true
+    },
+    {
+      "model_id": "Qwen/Qwen3-0.6B",
+      "short_name": "Qwen3-0.6B",
+      "param_b": 0.6,
+      "loader": "causal_lm",
+      "dtype": "auto",
+      "batch_size": 32,
+      "chat_kwargs": { "enable_thinking": false },
+      "is_hybrid": false,
+      "reasoning": true,
+      "role": "backup",
+      "note": "Pure-text safety net for the Qwen slot in case the Qwen3.5-0.8B multimodal load misbehaves.",
+      "c5_supported": true,
+      "quant_supported": true
+    }
+  ]
+}

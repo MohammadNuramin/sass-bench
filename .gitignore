@@ -1,0 +1,20 @@
+# Large raw artifacts — reproducible via the harness (see README). Kept out of git
+# (the raw generations exceed GitHub's 100 MB file limit).
+**/raw_outputs*.jsonl
+**/field_metrics.csv
+
+# Python / OS cruft
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Secrets / environment — NEVER commit
+.env
+*.env
+*token*.txt
+hf_*.txt
+*.key
+*credential*
