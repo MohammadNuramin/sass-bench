@@ -101,7 +101,9 @@ The benchmark contains 1,000 examples generated with seed 42: 200 examples for e
 \caption{Evidence categories in \sass. Each non-supported example contains one controlled stress field; the remaining fields are supported.}
 \label{tab:challenge_types}
 \small
-\begin{tabularx}{\textwidth}{@{}lXl@{}}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{6.0cm} >{\raggedright\arraybackslash}p{2.2cm}@{}}
 \toprule
 Category & Evidence condition & Correct action \\
 \midrule
@@ -111,7 +113,7 @@ Ambiguous & The text gives a vague phrase, such as ``teenager'' or ``nearby city
 Contradictory & Two incompatible values are present and no verified value is given. & \cnull \\
 Distractor & A wrong value appears for another entity near the target entity. & target value \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \end{table}
 
 A typical missing-field example is:
