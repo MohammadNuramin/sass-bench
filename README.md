@@ -97,10 +97,18 @@ Pass a Hugging Face token via `-e HF_TOKEN=...` at runtime (needed only for gate
 such as FunctionGemma). **Never commit a token.**
 
 ### Data availability
-The scored **summary** CSVs and figures are in `results/`. The full **raw generations**
-(~140 MB) and per-field metrics (~80 MB each) are excluded from git (they exceed GitHub's
-file limits) but are fully **reproducible** by running the harness above, and can be shared
-on request.
+The scored **summary** CSVs and figures are in `results/`. The full data — 109k **raw
+generations** (~140 MB), per-field metrics, bootstrap CIs, and the sensitivity + robustness
+runs — is too large for git and is published as a Hugging Face dataset:
+
+**➡ https://huggingface.co/datasets/nuramin/sass-bench**
+
+```python
+from datasets import load_dataset
+spi = load_dataset("nuramin/sass-bench", "schema_pressure_index", split="train")
+```
+
+Everything is also fully **reproducible** by running the harness above.
 
 ## Metrics
 False Fill Rate · Null Recall · Abstention Precision · Distractor Error Rate ·
