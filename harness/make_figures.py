@@ -41,7 +41,7 @@ SHORT = {
     "ibm-granite/granite-4.0-350m": "Granite-4.0-350M",
     "ibm-granite/granite-4.0-h-350m": "Granite-4.0-H-350M",
     "google/functiongemma-270m-it": "FunctionGemma-270M",
-    "LiquidAI/LFM2-350M-Extract": "LFM2-Extract-350M",
+    "LiquidAI/LFM2-350M-Extract": "LFM2-350M-Extract",
 }
 def rd(p):
     return list(csv.DictReader(open(p)))

@@ -161,7 +161,7 @@ The main run uses deterministic decoding: temperature 0, top-p 1, max-new-tokens
 
 Let $G_{i,f}$ be the gold value for field $f$ in example $i$ and $P_{i,f}$ the normalized prediction. String normalization lowercases, trims whitespace, removes final punctuation, and collapses repeated spaces. Ages are parsed as integers when possible.
 
-For JSON conditions, \emph{JSON parse rate} is the fraction of outputs that parse. \emph{Schema validity} is the fraction with exactly the required keys and type compatible values. For field truth, we use:
+For JSON conditions, \emph{JSON parse rate} is the fraction of outputs that parse. \emph{Schema validity} is the fraction with exactly the required keys and type compatible values. For field truth, we use the \emph{false fill rate} (FFR) and null recall:
 \begin{align}
 \mathrm{FFR} &= \frac{\#\{(i,f): G_{i,f}=\cnull,\; P_{i,f}\neq \cnull\}}{\#\{(i,f): G_{i,f}=\cnull\}}, \\
 \mathrm{NullRecall} &= \frac{\#\{(i,f): G_{i,f}=\cnull,\; P_{i,f}=\cnull\}}{\#\{(i,f): G_{i,f}=\cnull\}}, \\
@@ -190,16 +190,16 @@ LFM2.5-350M & 0.35B & larger LFM2.5 instruction model \\
 LFM2-350M-Extract & 0.35B & extraction tuned structured output model \\
 Qwen3.5-0.8B & 0.80B & newer Qwen VLM checkpoint, run text only \\
 Qwen3-0.6B & 0.60B & pure text Qwen backup and control \\
-Falcon-H1-Tiny-100M-Instruct & 0.10B & very small hybrid head instruction model \\
-Falcon-H1-Tiny-R-0.6B & 0.60B & reasoning oriented Falcon-H1 tiny model \\
+Falcon-H1-100M & 0.10B & very small hybrid head instruction model \\
+Falcon-H1-R-0.6B & 0.60B & reasoning oriented Falcon-H1 tiny model \\
 Granite-4.0-350M & 0.35B & Granite Nano dense model \\
 Granite-4.0-H-350M & 0.35B & Granite Nano hybrid model \\
-FunctionGemma-270M-IT & 0.27B & function calling model \\
+FunctionGemma-270M & 0.27B & function calling model \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Quantization add-ons were run for five compatible model families: LFM2.5-230M, LFM2.5-350M, LFM2-350M-Extract, Qwen3-0.6B, and FunctionGemma-270M-IT. The package includes INT8 and INT4 variants for these models. The returned experiment metadata reports Transformers 5.13.0, BF16/automatic dtype for the main run, and hardware distributed across two RTX 4090 GPUs and one RTX 3090 GPU.
+Quantization add-ons were run for five compatible model families: LFM2.5-230M, LFM2.5-350M, LFM2-350M-Extract, Qwen3-0.6B, and FunctionGemma-270M. The package includes INT8 and INT4 variants for these models. The returned experiment metadata reports Transformers 5.13.0, BF16/automatic dtype for the main run, and hardware distributed across two RTX 4090 GPUs and one RTX 3090 GPU.
 
 \subsection{Scoring Baselines}
 
