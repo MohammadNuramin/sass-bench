@@ -25,7 +25,7 @@
 \newcommand{\ra}{$\rightarrow$}
 
 % compact float spacing to fit the page budget
-\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
 \setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \setlength{\intextsep}{8pt plus 2pt minus 2pt}
 \setlength{\abovecaptionskip}{4pt}
@@ -34,13 +34,13 @@
 % tighten section-heading spacing to fit the page budget (same look, smaller skips)
 \makeatletter
 \renewcommand\section{\@startsection{section}{1}{\z@}%
-   {-14\p@ \@plus -4\p@ \@minus -4\p@}%
-   {9\p@ \@plus 4\p@ \@minus 4\p@}%
+   {-12\p@ \@plus -4\p@ \@minus -4\p@}%
+   {7\p@ \@plus 4\p@ \@minus 4\p@}%
    {\normalfont\large\bfseries\boldmath
     \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-   {-14\p@ \@plus -4\p@ \@minus -4\p@}%
-   {6\p@ \@plus 4\p@ \@minus 4\p@}%
+   {-12\p@ \@plus -4\p@ \@minus -4\p@}%
+   {5\p@ \@plus 4\p@ \@minus 4\p@}%
    {\normalfont\normalsize\bfseries\boldmath
     \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
 \makeatother
@@ -60,7 +60,7 @@
 \maketitle
 
 \begin{abstract}
-Structured output systems often treat parseable JSON as a proxy for reliability. We test a narrower failure mode in sub-billion parameter small language models: a required schema slot may be filled even when the source text does not support the value, although the schema permits \cnull for every field. We introduce \sass{} (the Schema-Abstention Stress Suite), a 1,000-item synthetic benchmark for field level abstention over five evidence regimes: supported, missing, ambiguous, contradictory, and distractor. Ten recent sub-1B checkpoints are evaluated under free text, loose JSON, strict JSON, explicit null, few-shot null, and constrained decoding, with quantized variants and a sampling replication. Strict JSON raises false fill rates for five of the ten models, with Qwen3-0.6B rising from 0.217 to 0.702 and Qwen3.5-0.8B from 0.287 to 0.708; the paired bootstrap intervals exclude zero and the effect persists under stochastic decoding. The increase is not universal: some models already false fill in free text, and others avoid false fills only by failing to emit valid JSON. Constrained decoding yields perfect parse and schema validity yet leaves false fill rates as high as 0.730. Explicit null rules reduce the error more reliably than few-shot examples. Evaluation should therefore score both the object and the evidence behind each field.
+Structured output systems often treat parseable JSON as a proxy for reliability. We test a narrower failure mode in sub-billion parameter small language models: a required schema slot may be filled even when the source text does not support the value, although the schema permits \cnull for every field. We introduce \sass{} (the Schema-Abstention Stress Suite), a 1,000-item synthetic benchmark for field level abstention over five evidence regimes: supported, missing, ambiguous, contradictory, and distractor. Ten recent sub-1B checkpoints are evaluated under free text, loose JSON, strict JSON, explicit null, few-shot null, and constrained decoding conditions, together with quantized variants and a sampling replication. Strict JSON raises false fill rates for five of the ten models, with Qwen3-0.6B increasing from 0.217 to 0.702 and Qwen3.5-0.8B from 0.287 to 0.708; the paired bootstrap intervals exclude zero, and the effect persists under stochastic decoding. The increase is not universal, because some models already false fill in free text and others avoid false fills only by failing to emit valid JSON. Constrained decoding yields 1.00 parse and schema validity for every compatible model, yet false fill rates remain as high as 0.730. Explicit null rules reduce the error more reliably than few-shot examples. Evaluation of structured output models should therefore score both the object and the evidence behind each field.
 \keywords{sub-1B language models, structured output, JSON, hallucination, abstention, constrained decoding}
 \end{abstract}
 
@@ -328,17 +328,17 @@ The experiments support a bounded version of the schema pressure hypothesis. Str
 
 This leads to a practical rule for evaluating sub-1B structured output systems: never report JSON validity alone. C5 makes this point directly. A constrained decoder can force every key and every type while leaving unsupported-value behavior unchanged or only partly improved. The field value must still be evaluated against evidence.
 
-The mitigation result is also useful. The explicit null rule is simple, cheap, and often effective; few-shot examples are not a drop-in replacement. In this experiment, few-shot null examples helped some LFM models and Qwen3.5, but hurt Qwen3-0.6B and the Granite models. A likely reason is that few-shot prompts change more than the abstention policy: they lengthen the prompt and shift the model toward copying example structure. The experiment does not prove that few-shot prompting is bad, only that it should be validated per model rather than assumed safe.
+The mitigation result is also useful. The explicit null rule is simple, cheap, and often effective. Few-shot examples are not a drop-in replacement. In this experiment, few-shot null examples helped some LFM models and Qwen3.5, but hurt Qwen3-0.6B and the Granite models. A likely reason is that few-shot prompts change more than the abstention policy: they lengthen the prompt, add a local style, and may shift the model toward copying example structure in ways that interact with its instruction tuning. The experiment does not prove that few-shot prompting is bad; it shows that it should be validated per model rather than assumed safe.
 
 \section{Limitations}
 
 The benchmark is synthetic and flat. It controls evidence status well, but it does not cover long documents, nested schemas, noisy OCR, multilingual contexts, or domain-specific forms. The next version should add nested objects and real documents while preserving field level evidence labels.
 
-The C5 constrained decoding result is framework-specific (the run used lm-format-enforcer); other grammar engines may differ in speed, supported schema features, or token-level behavior. The core point is narrower: any engine that only constrains syntax cannot by itself verify whether a value is supported by the source text.
+The C5 constrained decoding result is framework-specific. The returned package records lm-format-enforcer for C5. Other grammar engines may differ in speed, supported schema features, or token-level behavior. The core point remains narrower: any decoding engine that only constrains syntax cannot by itself verify whether a value is supported by the source text.
 
-The Qwen3.5-0.8B row requires care: the model is multimodal, was run through a text-only path, and had no C5 support. We therefore use Qwen3-0.6B as a pure-text Qwen control rather than treating Qwen3.5 as the only Qwen result.
+The Qwen3.5-0.8B row requires care. The model is multimodal and was run through a text-only path. C5 was not available for that stack. We therefore use Qwen3-0.6B as a pure-text Qwen control rather than treating Qwen3.5 as the only Qwen result.
 
-A planned optional-field ablation, where unsupported fields could be omitted instead of set to \cnull, was not part of this run, so we do not claim whether required keys create more pressure than optional keys. That ablation is the most direct next test of the mechanism.
+The planned optional-field ablation, where unsupported fields could be omitted instead of set to \cnull, was not present in the returned experiment package. This version of the paper therefore does not claim whether required keys create more pressure than optional keys. That ablation is the most direct next test of the mechanism.
 
 Finally, exact matching is conservative. A plausible guess is still wrong unless the context supports it. This is intentional for safety-critical extraction, but it can understate usefulness in applications where approximate labels are acceptable.
 
