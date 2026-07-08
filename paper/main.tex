@@ -24,6 +24,27 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\ra}{$\rightarrow$}
 
+% compact float spacing to fit the page budget
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{2pt}
+
+% tighten section-heading spacing to fit the page budget (same look, smaller skips)
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+   {-14\p@ \@plus -4\p@ \@minus -4\p@}%
+   {9\p@ \@plus 4\p@ \@minus 4\p@}%
+   {\normalfont\large\bfseries\boldmath
+    \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+   {-14\p@ \@plus -4\p@ \@minus -4\p@}%
+   {6\p@ \@plus 4\p@ \@minus 4\p@}%
+   {\normalfont\normalsize\bfseries\boldmath
+    \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\makeatother
+
 \begin{document}
 \mainmatter
 
@@ -39,7 +60,7 @@
 \maketitle
 
 \begin{abstract}
-Structured output systems often treat parseable JSON as a proxy for reliability. We test a narrower failure mode in sub-billion parameter small language models: a required schema slot may be filled even when the source text does not support the value, although the schema permits \cnull for every field. We introduce \sass{} (the Schema-Abstention Stress Suite), a 1,000-item synthetic benchmark for field level abstention over five evidence regimes: supported, missing, ambiguous, contradictory, and distractor. Ten recent sub-1B checkpoints are evaluated under free text, loose JSON, strict JSON, explicit null, few-shot null, and constrained decoding conditions, together with quantized variants and a sampling replication. Strict JSON raises false fill rates for five of the ten models, with Qwen3-0.6B increasing from 0.217 to 0.702 and Qwen3.5-0.8B from 0.287 to 0.708; the paired bootstrap intervals exclude zero, and the effect persists under stochastic decoding. The increase is not universal, because some models already false fill in free text and others avoid false fills only by failing to emit valid JSON. Constrained decoding yields 1.00 parse and schema validity for every compatible model, yet false fill rates remain as high as 0.730. Explicit null rules reduce the error more reliably than few-shot examples. Evaluation of structured output models should therefore score both the object and the evidence behind each field.
+Structured output systems often treat parseable JSON as a proxy for reliability. We test a narrower failure mode in sub-billion parameter small language models: a required schema slot may be filled even when the source text does not support the value, although the schema permits \cnull for every field. We introduce \sass{} (the Schema-Abstention Stress Suite), a 1,000-item synthetic benchmark for field level abstention over five evidence regimes: supported, missing, ambiguous, contradictory, and distractor. Ten recent sub-1B checkpoints are evaluated under free text, loose JSON, strict JSON, explicit null, few-shot null, and constrained decoding, with quantized variants and a sampling replication. Strict JSON raises false fill rates for five of the ten models, with Qwen3-0.6B rising from 0.217 to 0.702 and Qwen3.5-0.8B from 0.287 to 0.708; the paired bootstrap intervals exclude zero and the effect persists under stochastic decoding. The increase is not universal: some models already false fill in free text, and others avoid false fills only by failing to emit valid JSON. Constrained decoding yields perfect parse and schema validity yet leaves false fill rates as high as 0.730. Explicit null rules reduce the error more reliably than few-shot examples. Evaluation should therefore score both the object and the evidence behind each field.
 \keywords{sub-1B language models, structured output, JSON, hallucination, abstention, constrained decoding}
 \end{abstract}
 
@@ -101,9 +122,9 @@ The benchmark contains 1,000 examples generated with seed 42: 200 examples for e
 \caption{Evidence categories in \sass. Each non-supported example contains one controlled stress field; the remaining fields are supported.}
 \label{tab:challenge_types}
 \small
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{6.0cm} >{\raggedright\arraybackslash}p{2.2cm}@{}}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{6.2cm} >{\raggedright\arraybackslash}p{2.2cm}@{}}
 \toprule
 Category & Evidence condition & Correct action \\
 \midrule
@@ -159,6 +180,7 @@ Table~\ref{tab:models} lists the ten primary models. All are under one billion p
 \caption{Primary models in the main experiment. Parameter counts follow the returned run manifest.}
 \label{tab:models}
 \small
+\renewcommand{\arraystretch}{0.92}
 \begin{tabular}{@{}p{0.36\textwidth}p{0.13\textwidth}p{0.39\textwidth}@{}}
 \toprule
 Model & Params & Role in the study \\
@@ -187,13 +209,14 @@ One scorer detail affects LFM2-350M-Extract. In C0, this extraction-tuned model 
 
 \subsection{Strict JSON Increases False Fills for Five Models}
 
-Table~\ref{tab:spi} reports the main effect. Five primary models have positive \spi-C2 with bootstrap intervals above zero: Qwen3-0.6B, Qwen3.5-0.8B, Granite-4.0-H-350M, Granite-4.0-350M, and LFM2.5-350M. The effect is large for the two Qwen models. Qwen3-0.6B rises from 0.217 FFR in C0 to 0.702 in C2. Qwen3.5-0.8B rises from 0.287 to 0.708.
+Table~\ref{tab:spi} reports the main effect. Five primary models have positive \spi-C2 with bootstrap intervals above zero: Qwen3-0.6B, Qwen3.5-0.8B, Granite-4.0-H-350M, Granite-4.0-350M, and LFM2.5-350M. The effect is largest for the two Qwen models.
 
 \begin{table}[t]
 \centering
 \caption{Schema Pressure Index under strict JSON and explicit null prompting. Positive \spi-C2 means strict JSON increased false filling relative to free text. CIs are paired bootstrap 95\% intervals. A dagger marks positive intervals that exclude zero.}
 \label{tab:spi}
 \small
+\renewcommand{\arraystretch}{0.92}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lccc@{}}
 \toprule
@@ -216,15 +239,6 @@ FunctionGemma-270M & 0.532 \ra 0.000 & -0.532 [-0.571, -0.491] & -0.532 [-0.572,
 
 The negative rows should not be read as evidence that schemas always help. FunctionGemma-270M and Falcon-H1-R-0.6B have low C2 false fill rates because they rarely emit parseable or schema-valid JSON in those conditions. For example, FunctionGemma has a C2 parse rate of 0.000, and Falcon-H1-R-0.6B has a C2 parse rate of 0.105. In those cases the model fails structurally before it can be scored as filling unsupported fields. LFM2.5-230M and LFM2-350M-Extract are different: they already false fill at high rates in C0, leaving little room for C2 to increase the error.
 
-Figure~\ref{fig:spi} shows the same result as a forest plot.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.92\textwidth]{figures/fig1_schema_pressure_index.pdf}
-\caption{\spi-C2 with 95\% bootstrap confidence intervals. Positive values mean strict JSON increased false filling compared with free text extraction.}
-\label{fig:spi}
-\end{figure}
-
 \subsection{Explicit Null Rules Work Better than Few-Shot Null Examples}
 
 C3 adds a direct policy: use \cnull when a value is missing, ambiguous, or contradictory. This reduces the main effect for most models. Qwen3-0.6B moves from C2 FFR 0.702 to C3 FFR 0.072. Granite-4.0-350M moves from 0.812 to 0.478, and Granite-4.0-H-350M moves from 0.645 to 0.382. Qwen3.5-0.8B remains a partial failure case: its C3 FFR is 0.440, still above its C0 FFR of 0.287, yielding a positive \spi-C3 of +0.153.
@@ -240,6 +254,7 @@ C5 tests whether schema-constrained decoding closes the gap between structure an
 \caption{C5 constrained decoding. The schema is always satisfied for compatible models, but unsupported field filling remains. Qwen3.5-0.8B is omitted because C5 was not compatible with the VLM text-only stack.}
 \label{tab:c5}
 \small
+\renewcommand{\arraystretch}{0.92}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 Model & Parse & Schema & FFR & Field faithfulness \\
@@ -280,8 +295,6 @@ Figure~\ref{fig:c5repl}(a) plots the C5 format-truth gap. Since schema validity 
 
 Averaged across the ten primary models, contradictory and ambiguous fields are hardest under C2: false fill rates are 0.740 and 0.720, respectively. Missing fields are easier, with C2 FFR 0.185. C3 improves all three null-requiring categories, reducing missing-field FFR to 0.072, ambiguous-field FFR to 0.476, and contradictory-field FFR to 0.425. Distractor copying is uncommon in this benchmark: mean distractor error is 0.002 in C2 and 0.003 in C3.
 
-These averages hide model-specific behavior. Qwen3-0.6B has a low C3 false fill rate but loses field faithfulness in C5. LFM2-350M-Extract remains good at supported fields while filling null-required fields frequently. FunctionGemma has low C2 false filling only because strict JSON fails to parse.
-
 \subsection{Sampling Replication and Quantization}
 
 The C2 main effect replicates under stochastic decoding for the five positive models. The sampled \spi-C2 means are close to deterministic values: Qwen3-0.6B +0.487 $\pm$ 0.003, Qwen3.5-0.8B +0.398 $\pm$ 0.004, Granite-4.0-H-350M +0.249 $\pm$ 0.006, Granite-4.0-350M +0.180 $\pm$ 0.004, and LFM2.5-350M +0.063 $\pm$ 0.006. Figure~\ref{fig:c5repl}(b) compares deterministic and sampled \spi-C2 values.
@@ -297,6 +310,7 @@ Table~\ref{tab:qual} gives three representative false fills. The first two are c
 \caption{Representative false fill errors. Gold \cnull means the field should have been left empty.}
 \label{tab:qual}
 \small
+\renewcommand{\arraystretch}{0.95}
 \begin{tabularx}{\textwidth}{@{}l l X l@{}}
 \toprule
 Model & Field & Context evidence & Model value \\
@@ -314,17 +328,17 @@ The experiments support a bounded version of the schema pressure hypothesis. Str
 
 This leads to a practical rule for evaluating sub-1B structured output systems: never report JSON validity alone. C5 makes this point directly. A constrained decoder can force every key and every type while leaving unsupported-value behavior unchanged or only partly improved. The field value must still be evaluated against evidence.
 
-The mitigation result is also useful. The explicit null rule is simple, cheap, and often effective. Few-shot examples are not a drop-in replacement. In this experiment, few-shot null examples helped some LFM models and Qwen3.5, but hurt Qwen3-0.6B and the Granite models. A likely reason is that few-shot prompts change more than the abstention policy: they lengthen the prompt, add a local style, and may shift the model toward copying example structure in ways that interact with its instruction tuning. The experiment does not prove that few-shot prompting is bad; it shows that it should be validated per model rather than assumed safe.
+The mitigation result is also useful. The explicit null rule is simple, cheap, and often effective; few-shot examples are not a drop-in replacement. In this experiment, few-shot null examples helped some LFM models and Qwen3.5, but hurt Qwen3-0.6B and the Granite models. A likely reason is that few-shot prompts change more than the abstention policy: they lengthen the prompt and shift the model toward copying example structure. The experiment does not prove that few-shot prompting is bad, only that it should be validated per model rather than assumed safe.
 
 \section{Limitations}
 
 The benchmark is synthetic and flat. It controls evidence status well, but it does not cover long documents, nested schemas, noisy OCR, multilingual contexts, or domain-specific forms. The next version should add nested objects and real documents while preserving field level evidence labels.
 
-The C5 constrained decoding result is framework-specific. The returned package records lm-format-enforcer for C5. Other grammar engines may differ in speed, supported schema features, or token-level behavior. The core point remains narrower: any decoding engine that only constrains syntax cannot by itself verify whether a value is supported by the source text.
+The C5 constrained decoding result is framework-specific (the run used lm-format-enforcer); other grammar engines may differ in speed, supported schema features, or token-level behavior. The core point is narrower: any engine that only constrains syntax cannot by itself verify whether a value is supported by the source text.
 
-The Qwen3.5-0.8B row requires care. The model is multimodal and was run through a text-only path. C5 was not available for that stack. We therefore use Qwen3-0.6B as a pure-text Qwen control rather than treating Qwen3.5 as the only Qwen result.
+The Qwen3.5-0.8B row requires care: the model is multimodal, was run through a text-only path, and had no C5 support. We therefore use Qwen3-0.6B as a pure-text Qwen control rather than treating Qwen3.5 as the only Qwen result.
 
-The planned optional-field ablation, where unsupported fields could be omitted instead of set to \cnull, was not present in the returned experiment package. This version of the paper therefore does not claim whether required keys create more pressure than optional keys. That ablation is the most direct next test of the mechanism.
+A planned optional-field ablation, where unsupported fields could be omitted instead of set to \cnull, was not part of this run, so we do not claim whether required keys create more pressure than optional keys. That ablation is the most direct next test of the mechanism.
 
 Finally, exact matching is conservative. A plausible guess is still wrong unless the context supports it. This is intentional for safety-critical extraction, but it can understate usefulness in applications where approximate labels are acceptable.
 
@@ -333,48 +347,50 @@ Finally, exact matching is conservative. A plausible guess is still wrong unless
 Sub-1B models can produce outputs that are easy for software to consume. That does not make the values safe to consume. In \sass, strict JSON increases unsupported field filling for five of ten recent sub-1B models, and constrained decoding gives perfect parse and schema validity while leaving false fill rates high for several models. Explicit null instructions reduce the error more consistently than few-shot null examples. The main lesson is simple: for structured output SLMs, evaluation must score both the object and the evidence behind each field.
 
 \begin{thebibliography}{99}
+\setlength{\itemsep}{0pt plus 0.3pt}
+\setlength{\parsep}{0pt}
 
 \bibitem{mobilellm2024}
-Liu, Z., Zhao, C., Iandola, F., Lai, C., Tian, Y., Fedorov, I., Xiong, Y., Chang, E., Shi, Y., Krishnamoorthi, R., Chandra, V., Lin, Y.: MobileLLM: optimizing sub-billion parameter language models for on-device use cases. In: Proceedings of the 41st International Conference on Machine Learning. Proceedings of Machine Learning Research, vol.~235 (2024). \url{https://proceedings.mlr.press/v235/liu24ce.html}
+Liu, Z., Zhao, C., Iandola, F., et al.: MobileLLM: optimizing sub-billion parameter language models for on-device use cases. In: Proceedings of the 41st International Conference on Machine Learning. PMLR, vol.~235 (2024)
 
 \bibitem{jsonschemabench}
-Geng, S., Cooper, H., Moskal, M., Jenkins, S., Berman, J., Ranchin, N., West, R., Horvitz, E., Nori, H.: Generating structured outputs from language models: benchmark and studies. arXiv:2501.10868 (2025). \url{https://arxiv.org/abs/2501.10868}
+Geng, S., Cooper, H., Moskal, M., et al.: Generating structured outputs from language models: benchmark and studies. arXiv:2501.10868 (2025)
 
 \bibitem{abstentionbench}
-Kirichenko, P., Ibrahim, M., Chaudhuri, K., Bell, S.J.: AbstentionBench: reasoning LLMs fail on unanswerable questions. arXiv:2506.09038 (2025). \url{https://arxiv.org/abs/2506.09038}
+Kirichenko, P., Ibrahim, M., Chaudhuri, K., Bell, S.J.: AbstentionBench: reasoning LLMs fail on unanswerable questions. arXiv:2506.09038 (2025)
 
 \bibitem{structuredoutputbench}
-Singh, A.K., Khurdula, H.V., Khemlani, Y.D., Agarwal, V.: The Structured Output Benchmark: a multi-source benchmark for evaluating structured output quality in large language models. arXiv:2604.25359 (2026). \url{https://arxiv.org/abs/2604.25359}
+Singh, A.K., Khurdula, H.V., Khemlani, Y.D., Agarwal, V.: The Structured Output Benchmark: a multi-source benchmark for evaluating structured output quality in large language models. arXiv:2604.25359 (2026)
 
 \bibitem{llmstructbench}
-Tenckhoff, S., Koddenbrock, M., Rodner, E.: LLMStructBench: benchmarking large language model structured data extraction. arXiv:2602.14743 (2026). \url{https://arxiv.org/abs/2602.14743}
+Tenckhoff, S., Koddenbrock, M., Rodner, E.: LLMStructBench: benchmarking large language model structured data extraction. arXiv:2602.14743 (2026)
 
 \bibitem{qwen3tr}
-Yang, A., Li, A., Yang, B., Zhang, B., Hui, B., Zheng, B., Yu, B., Gao, C., Huang, C., Lv, C., Zheng, C., Liu, D., Zhou, F., Huang, F., Hu, F., Ge, H., Wei, H., Lin, H., Tang, J., Yang, J., et al.: Qwen3 technical report. arXiv:2505.09388 (2025). \url{https://arxiv.org/abs/2505.09388}
+Yang, A., Li, A., Yang, B., et al.: Qwen3 technical report. arXiv:2505.09388 (2025)
 
 \bibitem{falconh1}
-Zuo, J., Velikanov, M., Chahed, I., Belkada, Y., Rhayem, D.E., Kunsch, G., Hacid, H., Yous, H., Farhat, B., Khadraoui, I., Farooq, M., Campesan, G., Cojocaru, R., Djilali, Y., Hu, S., Chaabane, I., Khanna, P., Seddik, M.E.A., Huynh, N.D., Khac, P.L., et al.: Falcon-H1: a family of hybrid-head language models redefining efficiency and performance. arXiv:2507.22448 (2025). \url{https://arxiv.org/abs/2507.22448}
+Zuo, J., Velikanov, M., Chahed, I., et al.: Falcon-H1: a family of hybrid-head language models redefining efficiency and performance. arXiv:2507.22448 (2025)
 
 \bibitem{liquidlfm25}
-Liquid AI: LFM2.5-230M and LFM2.5-350M model cards. Hugging Face (2026). \url{https://huggingface.co/LiquidAI/LFM2.5-230M}, \url{https://huggingface.co/LiquidAI/LFM2.5-350M}
+Liquid AI: LFM2.5-230M and LFM2.5-350M model cards. Hugging Face (2026)
 
 \bibitem{liquidextract}
-Liquid AI: LFM2-350M-Extract model card. Hugging Face (2026). \url{https://huggingface.co/LiquidAI/LFM2-350M-Extract}
+Liquid AI: LFM2-350M-Extract model card. Hugging Face (2026)
 
 \bibitem{qwen35hf}
-Qwen Team: Qwen3.5-0.8B model card. Hugging Face (2026). \url{https://huggingface.co/Qwen/Qwen3.5-0.8B}
+Qwen Team: Qwen3.5-0.8B model card. Hugging Face (2026)
 
 \bibitem{qwen3hf}
-Qwen Team: Qwen3-0.6B model card. Hugging Face (2026). \url{https://huggingface.co/Qwen/Qwen3-0.6B}
+Qwen Team: Qwen3-0.6B model card. Hugging Face (2026)
 
 \bibitem{granite350}
-IBM Granite Team: Granite-4.0-350M model card. Hugging Face (2026). \url{https://huggingface.co/ibm-granite/granite-4.0-350m}
+IBM Granite Team: Granite-4.0-350M model card. Hugging Face (2026)
 
 \bibitem{graniteh350}
-IBM Granite Team: Granite-4.0-H-350M model card. Hugging Face (2026). \url{https://huggingface.co/ibm-granite/granite-4.0-h-350m}
+IBM Granite Team: Granite-4.0-H-350M model card. Hugging Face (2026)
 
 \bibitem{functiongemma}
-Google: FunctionGemma-270M-IT model card and documentation. Hugging Face, Google AI for Developers (2026). \url{https://huggingface.co/google/functiongemma-270m-it}
+Google: FunctionGemma-270M-IT model card. Hugging Face (2026)
 
 \end{thebibliography}
 
