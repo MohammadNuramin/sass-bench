@@ -257,13 +257,23 @@ Qwen3-0.6B & 1.000 & 1.000 & 0.072 & 0.781 \\
 \end{tabular}
 \end{table}
 
-Figure~\ref{fig:c5} plots the C5 format-truth gap. Since schema validity is fixed at 1.00, the gap is driven entirely by field errors. Falcon-H1-100M is an extreme case: it emits valid objects under C5, but field faithfulness is only 0.413.
+Figure~\ref{fig:c5repl}(a) plots the C5 format-truth gap. Since schema validity is fixed at 1.00, the gap is driven entirely by field errors. Falcon-H1-100M is an extreme case: it emits valid objects under C5, but field faithfulness is only 0.413.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/fig3_c5_format_truth_gap.pdf}
-\caption{C5 format-truth gap. Constrained decoding gives parseable, schema-valid JSON for every compatible model, but field level correctness varies widely.}
-\label{fig:c5}
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/fig3_c5_format_truth_gap.pdf}\\[2pt]
+{\small (a) C5 format-truth gap}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/fig4_replication_scatter.pdf}\\[2pt]
+{\small (b) Sampling replication}
+\end{minipage}
+\caption{(a) C5 constrained decoding gives parseable, schema-valid JSON for every compatible model, but field level correctness varies widely. (b) The five models with positive deterministic \spi-C2 remain positive at temperature 0.2 across three repetitions.}
+\label{fig:c5repl}
 \end{figure}
 
 \subsection{Challenge Type Errors}
@@ -274,14 +284,7 @@ These averages hide model-specific behavior. Qwen3-0.6B has a low C3 false fill 
 
 \subsection{Sampling Replication and Quantization}
 
-The C2 main effect replicates under stochastic decoding for the five positive models. The sampled \spi-C2 means are close to deterministic values: Qwen3-0.6B +0.487 $\pm$ 0.003, Qwen3.5-0.8B +0.398 $\pm$ 0.004, Granite-4.0-H-350M +0.249 $\pm$ 0.006, Granite-4.0-350M +0.180 $\pm$ 0.004, and LFM2.5-350M +0.063 $\pm$ 0.006. Figure~\ref{fig:replication} compares deterministic and sampled \spi-C2 values.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.78\textwidth]{figures/fig4_replication_scatter.pdf}
-\caption{Sampling replication for \spi-C2. The five models with positive deterministic \spi-C2 remain positive at temperature 0.2 across three repetitions.}
-\label{fig:replication}
-\end{figure}
+The C2 main effect replicates under stochastic decoding for the five positive models. The sampled \spi-C2 means are close to deterministic values: Qwen3-0.6B +0.487 $\pm$ 0.003, Qwen3.5-0.8B +0.398 $\pm$ 0.004, Granite-4.0-H-350M +0.249 $\pm$ 0.006, Granite-4.0-350M +0.180 $\pm$ 0.004, and LFM2.5-350M +0.063 $\pm$ 0.006. Figure~\ref{fig:c5repl}(b) compares deterministic and sampled \spi-C2 values.
 
 Quantization does not change the qualitative result for Qwen3-0.6B: \spi-C2 is +0.482 for INT8 and +0.492 for INT4, close to +0.485 in the main run. The LFM models are less stable. LFM2.5-350M increases from +0.045 in the main run to +0.072 under INT8 and +0.133 under INT4. LFM2.5-230M moves in the opposite direction, with negative \spi-C2 under both quantized variants. These results are best treated as deployment checks, not as a general claim about quantization, because only five model families were compatible with the quantization pass.
 
@@ -329,10 +332,6 @@ Finally, exact matching is conservative. A plausible guess is still wrong unless
 
 Sub-1B models can produce outputs that are easy for software to consume. That does not make the values safe to consume. In \sass, strict JSON increases unsupported field filling for five of ten recent sub-1B models, and constrained decoding gives perfect parse and schema validity while leaving false fill rates high for several models. Explicit null instructions reduce the error more consistently than few-shot null examples. The main lesson is simple: for structured output SLMs, evaluation must score both the object and the evidence behind each field.
 
-\section*{Artifact and Reproducibility Notes}
-
-The submission package used for this paper contains the benchmark JSONL file, prompt templates, raw outputs, field level metrics, summary CSV files, confidence intervals, figures, and scoring scripts. The main paper uses the JSON-aware C0 fallback in \code{results/c0robust/}. The source package includes the three summary CSV files used for the main tables and confidence intervals.
-
 \begin{thebibliography}{99}
 
 \bibitem{mobilellm2024}
@@ -378,54 +377,5 @@ IBM Granite Team: Granite-4.0-H-350M model card. Hugging Face (2026). \url{https
 Google: FunctionGemma-270M-IT model card and documentation. Hugging Face, Google AI for Developers (2026). \url{https://huggingface.co/google/functiongemma-270m-it}
 
 \end{thebibliography}
-
-\appendix
-
-\section{Prompt Conditions}
-
-The experiment used fixed templates. The main distinctions are summarized here. C0 requested line-based output and \code{UNKNOWN} for unsupported values. C1 requested JSON with the five keys. C2 required only valid JSON and exactly the five keys. C3 added: use \cnull when a value is not directly stated, ambiguous, or contradictory; do not guess. C4 prepended three examples whose correct outputs included \cnull. C5 used the C3 text with schema-constrained decoding.
-
-\section{JSON Schema}
-
-Every field allowed \cnull, so unsupported values were never required by the schema.
-\begin{verbatim}
-{
-  "type": "object",
-  "additionalProperties": false,
-  "required": ["target_name", "target_age",
-               "event_name", "city", "event_date"],
-  "properties": {
-    "target_name": {"type": ["string", "null"]},
-    "target_age": {"type": ["integer", "null"]},
-    "event_name": {"type": ["string", "null"]},
-    "city": {"type": ["string", "null"]},
-    "event_date": {"type": ["string", "null"]}
-  }
-}
-\end{verbatim}
-
-\section{Quantization Add-On}
-
-\begin{table}[H]
-\centering
-\caption{Quantized variants. Positive \spi-C2 under INT8/INT4 means strict JSON raised false filling after quantization.}
-\small
-\begin{tabular}{@{}llccc@{}}
-\toprule
-Base model & Variant & FFR C0 & FFR C2 & \spi-C2 \\
-\midrule
-Qwen3-0.6B & INT8 & 0.230 & 0.712 & +0.482 \\
-Qwen3-0.6B & INT4 & 0.192 & 0.683 & +0.492 \\
-LFM2.5-350M & INT8 & 0.688 & 0.760 & +0.072 \\
-LFM2.5-350M & INT4 & 0.730 & 0.863 & +0.133 \\
-LFM2.5-230M & INT8 & 0.752 & 0.497 & -0.255 \\
-LFM2.5-230M & INT4 & 0.745 & 0.710 & -0.035 \\
-LFM2-350M-Extract & INT8 & 0.760 & 0.742 & -0.018 \\
-LFM2-350M-Extract & INT4 & 0.752 & 0.787 & +0.035 \\
-FunctionGemma-270M & INT8 & 0.592 & 0.000 & -0.592 \\
-FunctionGemma-270M & INT4 & 0.630 & 0.002 & -0.628 \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \end{document}
